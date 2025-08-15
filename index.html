@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     body{
+        border: 5px solid white;
+        width: 160px;
+        background-color: black;
+     }
+    button {
+        color: black;
+        background-color: orange;
+        width: 30px;
+        height: 30px;
+        font-size: 10px;
+        margin: 3px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .red {
+        background-color: red;
+        color: white;
+    }
+    input {
+        width: 150px;
+        height: 20px;
+        font-size: 14px;
+        text-align: right;
+        margin-bottom: 5px;
+    }
+</style>
+</head>
+<body>
+     <input type="text" id="screen" ><br>
+
+<button onclick="add('1')">1</button>
+<button onclick="add('2')">2</button>
+<button onclick="add('3')">3</button>
+<button onclick="add('+')">+</button>
+<br>
+<button onclick="add('4')">4</button>
+<button onclick="add('5')">5</button>
+<button onclick="add('6')">6</button>
+<button onclick="add('-')">-</button>
+<br>
+<button onclick="add('7')">7</button>
+<button onclick="add('8')">8</button>
+<button onclick="add('9')">9</button>
+<button onclick="add('*')">*</button>
+<br>
+<button onclick="add('0')">0</button>
+<button onclick="add('.')">.</button>
+<button class="red" onclick="calculate()">=</button>
+<button onclick="add('/')">/</button>
+<br>
+<button onclick="clearScreen()">AC</button>
+<button onclick="delChar()">DEL</button>
+
+
+<script>
+let screen = document.getElementById("screen");
+
+function add(val) {
+    screen.value += val;
+}
+function calculate() {
+    try {
+        screen.value = eval(screen.value);
+    } catch {
+        screen.value = "Error";
+    }
+}
+function clearScreen() {
+    screen.value = "";
+}
+function delChar() {
+    screen.value = screen.value.slice(0, -1);
+}
+</script>
+
+
+</body>
+</html>
